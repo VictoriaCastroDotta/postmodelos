@@ -1,0 +1,9 @@
+<div class="jumbotron" style="width: 500px;margin:auto;margin-bottom: 15px;">
+    <h5>Viajero : {{viajero.nombre}} {{viajero.apellido}}</h5>
+    <p> Dni: {{ viajero.dni}}</p>
+    <p> Fecha Ingreso : {{ viajero.fechaIngreso}}</p>
+    <p> Fecha Salida: {{ viajero.fechaSalida}}</p>
+    <p> Habitación: {{ viajero.habitacion}}</p>
+    <button class="btn btn-info mce-btn-small" (click)="editarViajero()"> Editar </button>
+    <button class="btn btn-danger mce-btn-small" (click)="deleteViajero()"> Eliminar </button>
+</div>

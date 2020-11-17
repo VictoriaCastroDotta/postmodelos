@@ -1,0 +1,55 @@
+<div class="centro">
+    <h1 class="font-italic"> Viajeros hospedados </h1>
+    <button class="btn btn-primary" (click)="mostrarNuevoFormulario()"> Añadir viajero </button>
+    <hr>
+</div>
+<div *ngIf="nuevo == true" class="centro">
+    <form #nuevoViajero="ngForm" class="form-group">
+        <label> Nombre: </label>
+        <input type="text" name="cajaNuevoNombre" #cajaNuevoNombre class="form-control-sm">
+        <label> Apellido: </label>
+        <input type="text" name="cajaNuevoApellido" #cajaNuevoApellido class="form-control-sm">
+        <label> DNI: </label>
+        <input type="text" name="cajaNuevoDni" #cajaNuevoDni class="form-control-sm"><br>
+        <label> Fecha ingreso: </label>
+        <input type="date" name="cajaNuevoFechaI" #cajaNuevoFechaI class="form-control-sm">
+        <label> Fecha salida: </label>
+        <input type="date" name="cajaNuevoFechaS" #cajaNuevoFechaS class="form-control-sm">
+        <label> Habitación: </label>
+        <input type="string" name="nuevoHab" #nuevoHab class="form-control-sm"><br><br>
+        <button class="btn btn-success" (click)="crearViajero()"> Añadir </button>
+        <button (click)="cancelarNuevo()" class="btn btn-danger">Cancelar</button>
+    </form>
+</div>
+
+<div *ngIf="editar == true" class="centro">
+    <form #editarViajero="ngForm" class="form-group">
+        <label> Nombre: </label>
+        <input type="text" name="nombreMod" #nombreMod class="form-control-sm">
+        <label> Apellido: </label>
+        <input type="text" name="apellidoMod" #apellidoMod class="form-control-sm">
+        <label> DNI: </label>
+        <input type="text" name="dniMod" #dniMod class="form-control-sm"><br>
+        <label> Fecha ingreso: </label>
+        <input type="date" name="fechaInMod" #fechaInMod class="form-control-sm">
+        <label> Fecha salida: </label>
+        <input type="date" name="fechaSaMod" #fechaSaMod class="form-control-sm">
+        <label> Habitación: </label>
+        <input type="string" name="habMod" #habMod class="form-control-sm"><br><br>
+        <button class="btn btn-success" (click)="updateViajero()"> Editar </button>
+        <button (click)="cancelarEditar()" class="btn btn-danger">Cancelar</button>
+    </form>
+</div>
+
+
+<div class="centro">
+
+    <div *ngFor="let viajero of viajeros; let i = index">
+        <app-viajeros [viajero]="viajero" [posicion]="i" (activarEdicion)="activarEdicion($event)"
+            (eliminarViajero)="eliminarViajero($event)"></app-viajeros>
+    </div>
+</div>
+
+<!-- el event nos sirve para poder recbiri en el metodo y usar los parametros -->
+
+<!-- //para que pueda recibir parametros -->
