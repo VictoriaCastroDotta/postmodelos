@@ -9,7 +9,9 @@ import { Viajero } from './../../models/viajero';
 export class HotelComponent implements OnInit {
   public viajeros: Array<Viajero>;
   public nuevo = false;
+
   public editar = false;
+
   public posicionRecibida: number;
 
   //Variables de ViewChild para crear nuevo viajero:
@@ -19,6 +21,33 @@ export class HotelComponent implements OnInit {
   @ViewChild('cajaNuevoFechaI') cajaNuevoFechaI: ElementRef;
   @ViewChild('cajaNuevoFechaS') cajaNuevoFechaS: ElementRef;
   @ViewChild('nuevoHab') nuevoHab: ElementRef;
+
+  mostrarNuevoFormulario() {
+    this.nuevo = true;
+  }
+
+  crearViajero() {
+    var nuevoNom = this.cajaNuevoNombre.nativeElement.value;
+    var nuevoApe = this.cajaNuevoApellido.nativeElement.value;
+    var nuevoNuevoDni = this.cajaNuevoDni.nativeElement.value;
+    var nuevoFechaI = this.cajaNuevoFechaI.nativeElement.value;
+    var nuevoFechaS = this.cajaNuevoFechaS.nativeElement.value;
+    var nuevoHab = this.nuevoHab.nativeElement.value;
+
+    var viajero = new Viajero(
+      nuevoNom,
+      nuevoApe,
+      nuevoNuevoDni,
+      nuevoFechaI,
+      nuevoFechaS,
+      nuevoHab
+    );
+    this.viajeros.push(viajero);
+  }
+
+  cancelarNuevo() {
+    this.nuevo = false;
+  }
 
   //Variables de ViewChild para modificar viajero:
   @ViewChild('nombreMod') nombreMod: ElementRef;
@@ -65,33 +94,6 @@ export class HotelComponent implements OnInit {
     if (hab != '') {
       this.viajeros[this.posicionRecibida].habitacion = hab;
     }
-  }
-
-  mostrarNuevoFormulario() {
-    this.nuevo = true;
-  }
-
-  crearViajero() {
-    var nuevoNom = this.cajaNuevoNombre.nativeElement.value;
-    var nuevoApe = this.cajaNuevoApellido.nativeElement.value;
-    var nuevoNuevoDni = this.cajaNuevoDni.nativeElement.value;
-    var nuevoFechaI = this.cajaNuevoFechaI.nativeElement.value;
-    var nuevoFechaS = this.cajaNuevoFechaS.nativeElement.value;
-    var nuevoHab = this.nuevoHab.nativeElement.value;
-
-    var viajero = new Viajero(
-      nuevoNom,
-      nuevoApe,
-      nuevoNuevoDni,
-      nuevoFechaI,
-      nuevoFechaS,
-      nuevoHab
-    );
-    this.viajeros.push(viajero);
-  }
-
-  cancelarNuevo() {
-    this.nuevo = false;
   }
 
   cancelarEditar() {

@@ -9,7 +9,9 @@ import { Viajero } from './../../models/viajero';
 export class ViajerosComponent implements OnInit {
   @Input() viajero: Viajero;
   @Input() posicion: number;
+
   @Output() eliminarViajero = new EventEmitter();
+
   @Output() activarEdicion = new EventEmitter();
 
   constructor() {}

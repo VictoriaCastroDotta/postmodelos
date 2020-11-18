@@ -43,13 +43,8 @@
 
 
 <div class="centro">
-
     <div *ngFor="let viajero of viajeros; let i = index">
         <app-viajeros [viajero]="viajero" [posicion]="i" (activarEdicion)="activarEdicion($event)"
             (eliminarViajero)="eliminarViajero($event)"></app-viajeros>
     </div>
 </div>
-
-<!-- el event nos sirve para poder recbiri en el metodo y usar los parametros -->
-
-<!-- //para que pueda recibir parametros -->

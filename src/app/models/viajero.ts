@@ -1,6 +1,4 @@
 export class Viajero {
-  //MODELO CLIENTE:
-  //Constructor forma 1:
   constructor(
     public nombre: string,
     public apellido: string,
@@ -10,7 +8,6 @@ export class Viajero {
     public habitacion: string
   ) {}
 
-  //Constructor forma 2:
   // public nombre: string;
   // public apellido: string;
   // public dni: number;
